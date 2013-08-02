@@ -1,9 +1,139 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="./css/bootstrap.css" rel="stylesheet">
+<style>
+body {
+background-color:#269;
+background-image: linear-gradient(white 2px, transparent 2px),
+linear-gradient(90deg, white 2px, transparent 2px),
+linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px
+}
+.bad {
+background-color: #f00;
+padding: 11px;
+}
+.good {
+background-color: green;
+padding: 11px;
+}
+.navbar-inverse {
+margin-top: 16px;
+}
+.sponsor {
+position: absolute;
+bottom: 3px;
+right: 3px;
+}
+</style>
+<script src="./js/jquery.js"></script>
+<script src="./js/bootstrap.js"></script>
+<script src="./js/zclip.js"></script>
+
+<script>
+$(document).ready(function(){
+
+	$("[rel=tooltip]").tooltip({ placement: 'top'});
+		
+	$('a#copy-description').zclip({
+	path:'./js/ZeroClipboard.swf',
+	copy:$('p#description').text()
+	});
+
+});
+</script>
 </head>
 
 <body>
-Robot ipsum datus scan amet, constructor ad ut splicing elit, sed do errus mod tempor in conduit ut laboratory et deplore electromagna aliqua. Ut enim ad minimum veniam, quis no indestruct exoform ullamco laboris nisi ut alius equip ex ea commando evaluant. Duis ex machina aute ire dolorus in scan detectus an voluptate volt esse cesium dolore eu futile nulla parameter. Execute primus sint occaecat cupidatat non proident, sunt in culpa qui technia deserunt mondus anim id est proceus.
+	<div class="container">
+	
+	<div class="navbar navbar-inverse">
+        <a href="#" class="navbar-brand">Robot Ipsum</a>
+        <button type="button" data-toggle="modal" href="#share" class="btn btn-default navbar-btn pull-right">Share</button>
+      </div>
+	
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="jumbotron">
+					<h1>Robot Ipsum</h1>
+					<p>Mechanically Modern Material Made Mostly For Mankind...</p>
+					<div id="progress" class="progress progress-striped active" rel="tooltip" data-placement="top" title="World domination: 45% complete">
+						<div class="progress-bar" style="width: 45%"></div>
+					</div>
+					<p><a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">Learn More</a></p>
+				</div>
+			</div>
+			
+			<div class="col-lg-6">
+
+				<pre id="description">Robot ipsum datus scan amet, constructor ad ut splicing elit, sed do errus mod tempor in conduit ut laboratory et deplore electromagna aliqua. Ut enim ad minimum veniam, quis no indestruct exoform ullamco laboris nisi ut alius equip ex ea commando evaluant. Duis ex machina aute ire dolorus in scan detectus an voluptate volt esse cesium dolore eu futile nulla parameter. Execute primus sint occaecat cupidatat non proident, sunt in culpa qui technia deserunt mondus anim id est proceus.</pre>
+				
+				<p>
+				<a id="copy-description" class="btn btn-success btn-large">Copy to Clipboard</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	
+	<button class="btn btn-default sponsor">Sponsored by <a href="http://salviusrobot.blogspot.com">Salvius the Robot</a></button>
+
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h2 class="modal-title">Restricted Area: Access Denied</h2>
+        </div>
+        <div class="modal-body">
+			<div class="row">
+				<div class="col-lg-2">
+					<img class="bad" src="./img/cogs.svg">
+				</div>
+				<div class="col-lg-10">
+					<p>
+					This information has been restricted by your robot overlords.<br />Be informed that this restriction is for your own protection. Please navigate back to the main site and enjoy your day!
+					</p>
+				</div>
+        </div>
+        <div class="modal-footer">
+          <a href="#" data-dismiss="modal" class="btn btn-danger">Obey</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="modal fade" id="share">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h2 class="modal-title">Share with your fellow humans</h2>
+        </div>
+        <div class="modal-body">
+			<div class="row">
+				<div class="col-lg-2">
+					<img class="good" src="./img/thumbsup.svg">
+				</div>
+				<div class="col-lg-10">
+					<p>
+					Robot Ipsum is powered by sharing.<br />
+					Share a link to this site with your friends to earn the favor of our robot overlords.
+					</p>
+				</div>
+        </div>
+        <div class="modal-footer">
+          <a href="#" data-dismiss="modal" class="btn btn-success">Obey</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 
 </html>
