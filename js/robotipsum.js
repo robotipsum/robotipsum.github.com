@@ -1367,3 +1367,6 @@ $(".learn").click(function() {
     $("#learn").modal();
 });
 
+$(".reset").click(function() {
+    location.reload();
+});
