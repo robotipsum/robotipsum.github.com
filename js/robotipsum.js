@@ -1004,7 +1004,7 @@ var suffix = [
 'colous',
 'cracy',
 'crat',
-'cratic ',
+'cratic',
 'cratical',
 'cy',
 'cyte',
@@ -1344,19 +1344,40 @@ var suffix = [
 'zyme'
 ];
 
-function submit(){
+function submit() {
     var amount = document.getElementById('wordcount').value;
     var span = document.getElementById('text');
     var but = document.getElementById('but');
     span.style.display = 'block';
     but.value="Generate More";
 
-    for (var i=0; i<amount; i++) {
+    // Count to put a period every x + rand() words.
+    var count = 0;
+    for (var i = 0; i < amount; i++) {
+
+        // Random number between 1 and 5
+        var rand = Math.floor(Math.random() * 5) + 1;
+
         var pi = Math.floor(Math.random()*prefix.length);
         var si = Math.floor(Math.random()*suffix.length);
-        
-        span.innerHTML = span.innerHTML + (prefix[pi] + suffix[si] + " ");
-    };
+
+        // If count is zero then it is the first word in a sentence.
+        if (count == 0) {
+            var word = prefix[pi].charAt(0).toUpperCase() + prefix[pi].slice(1);
+            span.innerHTML = span.innerHTML + (word + suffix[si] + " ");
+            count++;
+        } else {
+            if ((count + rand) > 10) {
+                span.innerHTML = span.innerHTML + (prefix[pi] + suffix[si] + ". ");
+                count = 0;
+            } else {
+                span.innerHTML = span.innerHTML + (prefix[pi] + suffix[si] + " ");
+                count++;
+            }
+        }
+    }
+    span.innerHTML = span.innerHTML.substring(0, span.innerHTML.length - 1) + ". ";
+
 }
 
 $(".share").click(function() {
