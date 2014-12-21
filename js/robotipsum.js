@@ -1,3 +1,5 @@
+var $text = $(".text");
+
 $(document).ready(function(){
 
 	$("[rel=tooltip]").tooltip({ placement: 'top'});
@@ -11,11 +13,7 @@ $(document).ready(function(){
 });
 
 function generateWords(prefixes, suffixes) {
-    var amount = document.getElementById('wordcount').value;
-    var span = document.getElementById('text');
-    var but = document.getElementById('but');
-    span.style.display = 'block';
-    but.value="Generate More";
+    var amount = $(".js-wordcount").val();
 
     // Count to put a period every x + rand() words.
     var count = 0;
@@ -30,27 +28,28 @@ function generateWords(prefixes, suffixes) {
         // If count is zero then it is the first word in a sentence.
         if (count == 0) {
             var word = prefixes[pi].charAt(0).toUpperCase() + prefixes[pi].slice(1);
-            span.innerHTML = span.innerHTML + (word + suffixes[si] + " ");
+            $text.text($text.text() + word + suffixes[si] + " ");
             count++;
         } else {
             if ((count + rand) > 10) {
-                span.innerHTML = span.innerHTML + (prefixes[pi] + suffixes[si] + ". ");
+                $text.text($text.text() + prefixes[pi] + suffixes[si] + ". ");
                 count = 0;
             } else {
-                span.innerHTML = span.innerHTML + (prefixes[pi] + suffixes[si] + " ");
+                $text.html($text.text() + prefixes[pi] + suffixes[si] + " ");
                 count++;
             }
         }
     }
-    span.innerHTML = span.innerHTML.substring(0, span.innerHTML.length - 1) + ". ";
-
+    $text.text($text.text().substring(0, $text.text().length - 1) + ". ");
 }
 
 $(".js-submit").click(function() {
+    $(this).val("Generate more");
+    $text.show();
     $.ajax({
         url: "./morphemes.json"
     }).done(function(data) {
-        generateWords(data.prefixeses, data.suffixeses)
+        generateWords(data.prefixes, data.suffixes)
     });
 });
 
@@ -63,5 +62,5 @@ $(".learn").click(function() {
 });
 
 $(".reset").click(function() {
-    location.reload();
+    $text.text("").hide();
 });

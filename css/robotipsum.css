@@ -1,0 +1,42 @@
+body {
+    background:#ddd;
+    background-image: url('../img/metal.jpg');
+}
+a {
+    text-decoration:none!important;
+}
+.navbar-inverse {
+    margin-top: 30px;
+}
+.bad {
+    background-color: #f00;
+    padding: 11px;
+}
+.good {
+    background-color: green;
+    padding: 11px;
+}
+#hal {
+    position: absolute;
+    top: 0px;
+    right: calc(50% - 55px);
+    width: 110px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: moz-none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.sponsor {
+    position: fixed;
+    bottom: 3px;
+    left: 3px;
+    opacity:0.5;
+    filter:alpha(opacity=50);
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+}
+.sponsor:hover {
+    opacity:1;
+}

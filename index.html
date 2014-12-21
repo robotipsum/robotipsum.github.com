@@ -1,178 +1,141 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Robot Ipsum</title>
-<link href="./css/bootstrap.css" rel="stylesheet">
-<style>
-body {
-background:#ddd;
-background-image: url('./img/metal.jpg');
-}
-a {
-text-decoration:none!important;
-}
-.navbar-inverse {
-margin-top: 30px;
-}
-.bad {
-background-color: #f00;
-padding: 11px;
-}
-.good {
-background-color: green;
-padding: 11px;
-}
-#hal {
-position: absolute;
-top: 0px;
-right: calc(50% - 55px);
-width: 110px;
--webkit-touch-callout: none;
--webkit-user-select: none;
--moz-user-select: moz-none;
--ms-user-select: none;
-user-select: none;
-}
-.sponsor {
-position: fixed;
-bottom: 3px;
-left: 3px;
-opacity:0.5;
-filter:alpha(opacity=50);
-transition: opacity .25s ease-in-out;
--moz-transition: opacity .25s ease-in-out;
--webkit-transition: opacity .25s ease-in-out;
-}
-.sponsor:hover {
-opacity:1;
-}
-</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Ipsum</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/robotipsum.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
 
-    <div class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <a href="#" class="navbar-brand">Robot Ipsum</a>
-            <button class="btn btn-success navbar-btn pull-right share">Share</button>
-        </div>
-    </div>
-
-    <div class="row">
-	    <div class="col-xs-6">
-		    <div class="jumbotron">
-			    <h1>Robot Ipsum</h1>
-			    <p>Mechanically Modern Material Made Mostly For Mankind...</p>
-                <div class="progress progress-striped active" rel="tooltip" title="World domination: 45% complete">
-                    <div class="progress-bar progress-bar-danger" role="progressbar" style="width: 45%">
-                        <span class="sr-only">World domination: 45% complete</span>
-                    </div>
-                </div>
-			    <p><button class="btn btn-danger btn-large learn">Learn More</button></p>
-		    </div>
-	    </div>
-		
-	    <div class="col-xs-6">
-
-		    <pre id="description">Robot ipsum datus scan amet, constructor ad ut splicing elit, sed do errus mod tempor in conduit ut laboratory et deplore electromagna aliqua. Ut enim ad minimum veniam, quis no indestruct exoform ullamco laboris nisi ut alius equip ex ea commando evaluant. Duis ex machina aute ire dolorus in scan detectus an voluptate volt esse cesium dolore eu futile nulla parameter. Execute primus sint occaecat cupidatat non proident, sunt in culpa qui technia deserunt mondus anim id est proceus.</pre>
-                
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="input-group" rel="tooltip" title="Need more? Let the robots build you some.">
-                        <input type="text" id="wordcount" value="50" class="form-control input-large" />
-                        <span class="input-group-btn">
-                            <input type="button" class="btn btn-large btn-primary js-submit" value="Generate"/>
-                        </span>
-                    </div>
-                </div>
+        <div class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand">Robot Ipsum</a>
+                <button class="btn btn-success navbar-btn pull-right share">Share</button>
             </div>
-            <div class="row">
-                <div class="col-xs-6">
-                    <a id="copy-description" class="btn btn-default btn-block btn-large">
-                        <span class="glyphicon glyphicon-briefcase"></span>
-                        Copy text to clipboard
-                    </a>
-                </div>
-                <div class="col-xs-6">
-                    <a class="btn btn-default btn-block btn-large reset">
-                        <span class="glyphicon glyphicon-remove-circle"></span>
-                        Emergency reset
-                    </a>
-                </div>
-            </div>
-
         </div>
 
+        <div class="row">
+	        <div class="col-xs-6">
+
+		        <div class="jumbotron">
+			        <h1>Robot Ipsum</h1>
+			        <p>Mechanically Modern Material Made Mostly For Mankind...</p>
+                    <div class="progress progress-striped active" rel="tooltip" title="World domination: 45% complete">
+                        <div class="progress-bar progress-bar-danger" style="width: 45%">
+                            <span class="sr-only">World domination: 45% complete</span>
+                        </div>
+                    </div>
+			        <button class="btn btn-danger btn-large learn">Learn More</button>
+		        </div>
+
+	        </div>
+	        <div class="col-xs-6">
+
+		        <pre id="description">Robot ipsum datus scan amet, constructor ad ut splicing elit, sed do errus mod tempor in conduit ut laboratory et deplore electromagna aliqua. Ut enim ad minimum veniam, quis no indestruct exoform ullamco laboris nisi ut alius equip ex ea commando evaluant. Duis ex machina aute ire dolorus in scan detectus an voluptate volt esse cesium dolore eu futile nulla parameter. Execute primus sint occaecat cupidatat non proident, sunt in culpa qui technia deserunt mondus anim id est proceus.</pre>
+                    
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="input-group" rel="tooltip" title="Need more? Let the robots build you some.">
+                            <input type="text" value="50" class="form-control input-large js-wordcount" />
+                            <span class="input-group-btn">
+                                <input type="button" class="btn btn-large btn-primary js-submit" value="Generate"/>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a id="copy-description" class="btn btn-default btn-block btn-large">
+                            <span class="glyphicon glyphicon-briefcase"></span>
+                            Copy text
+                        </a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="btn btn-default btn-block btn-large reset">
+                            <span class="glyphicon glyphicon-remove-circle"></span>
+                            Emergency reset
+                        </a>
+                    </div>
+                </div>
+
+            </div>
 	    </div>
         
         <div class="row">
             <div class="col-lg-12">
-                <pre id="text" style="display:none">Robot ipsum </pre>
+                <pre class="text" style="display:none">Robot ipsum </pre>
             </div>
         </div>
-        
+
     </div>
-</div>
 
     <!-- image from http://commons.wikimedia.org/wiki/File%3AHAL9000_Barnstar.png -->
     <img id="hal" src="./img/hal.png" rel="hal" title="Good morning. Help yourself to some filler text, free from human error.">
 
     <button class="btn btn-default sponsor">Sponsored by <a href="http://salviusrobot.blogspot.com">Salvius the Robot</a></button>
 
-  <div class="modal fade" id="learn">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 class="modal-title">Restricted Area: Access Denied</h2>
-        </div>
-        <div class="modal-body">
-		    <div class="row">
-			    <div class="col-lg-2">
-				    <img class="bad" src="./img/cogs.svg">
-			    </div>
-			    <div class="col-lg-10">
-				    <p>
-				    This information has been restricted by your robot overlords.<br />Be informed that this restriction is for your own protection. Please navigate back to the main site and enjoy your day!
-				    </p>
-			    </div>
-            </div>
-            <div class="modal-footer">
-              <a href="#" data-dismiss="modal" class="btn btn-danger">Obey</a>
+    <div class="modal fade" id="learn">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title">Restricted Area: Access Denied</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <img class="bad" src="./img/cogs.svg">
+                        </div>
+                        <div class="col-lg-10">
+                            <p>
+                                This information has been restricted by your robot overlords.
+                                <br />
+                                Be informed that this restriction is for your own protection.
+                                Please navigate back to the main page and enjoy your day!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" data-dismiss="modal" class="btn btn-danger">Obey</a>
+                </div>
             </div>
         </div>
     </div>
-  </div>
-</div>
 
-  <div class="modal fade" id="share">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 class="modal-title">Share with your fellow humans</h2>
+    <div class="modal fade" id="share">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title">Share with your fellow humans</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <img class="good" src="./img/thumbsup.svg">
+                        </div>
+                        <div class="col-lg-10">
+                            <p>
+                                Robot Ipsum is powered by sharing.
+                                <br />
+                                Share a link to this site with your friends
+                                to earn the favor of our robot overlords.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" data-dismiss="modal" class="btn btn-success">Obey</a>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-		    <div class="row">
-			    <div class="col-lg-2">
-				    <img class="good" src="./img/thumbsup.svg">
-			    </div>
-			    <div class="col-lg-10">
-				    <p>
-				    Robot Ipsum is powered by sharing.<br />
-				    Share a link to this site with your friends to earn the favor of our robot overlords.
-				    </p>
-			    </div>
-        </div>
-        <div class="modal-footer">
-          <a href="#" data-dismiss="modal" class="btn btn-success">Obey</a>
-        </div>
-      </div>
     </div>
-  </div>
-</div>
+
 <script src="./js/jquery.js"></script>
 <script src="./js/bootstrap.js"></script>
 <script src="./js/zclip.js"></script>
@@ -188,5 +151,4 @@ ga('send', 'pageview');
 </script>
 
 </body>
-
 </html>
