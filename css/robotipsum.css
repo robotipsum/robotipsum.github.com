@@ -8,6 +8,15 @@ a {
 .navbar-inverse {
     margin-top: 30px;
 }
+#description, .text {
+    font-family: monospace;
+    background-color: #efefef;
+    padding: 10px;
+    border-radius: 3px;
+}
+.mt-1 {
+    margin-top: 10px;
+}
 .bad {
     background-color: #f00;
     padding: 11px;

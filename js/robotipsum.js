@@ -2,13 +2,15 @@ var $text = $(".text");
 
 $(document).ready(function(){
 
-	$("[rel=tooltip]").tooltip({ placement: 'top'});
-	$("[rel=hal]").tooltip({ placement: 'bottom'});
-		
-	$('a#copy-description').zclip({
-	path:'./js/ZeroClipboard.swf',
-	copy:$('pre#description').text()
-	});
+    $("[rel=tooltip]").tooltip({ placement: 'top'});
+    $("[rel=hal]").tooltip({ placement: 'bottom'});
+
+    $('a#copy-description').click(function (e) {
+        e.preventDefault();
+        var text = $('p#description').text();
+
+        navigator.clipboard.writeText(text);
+    });
 
 });
 
